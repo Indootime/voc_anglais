@@ -27,7 +27,8 @@ VERBS_BE = tuple({"Je suis": "I am",
                "On est": "He is",
                "Nous sommes": "We are",
                "Vous êtes" : "You are",
-               "Ils,Elle sont": "They are"}.items())
+                  "Ils sont": "They are",
+                  "Elles sont": "They are"}.items())
 
 VERBS_HAVE = tuple({"j'ai": "I have",
                     "Tu as": "You have",
@@ -36,18 +37,20 @@ VERBS_HAVE = tuple({"j'ai": "I have",
                     "On est" : "He has",
                     "Nous avons" : "We have",
                     "Vous avez" : "You have",
-                    "Ils, Elles sont": "They have"}.items())
+                    "Ils sont": "They have",
+                    "Elles sont": "They have"}.items())
+
 
 
 
 def main_menu():
-    print("1.  Anglais --> Français")
+    print("1.  Français --> Anglais")
     print()
-    print("2.  Français --> Anglais")
+    print("2.  Anglais --> Français")
     print()
-    print("3.  Conjugaison du Verbe  être")
+    print("3.  Conjugaison du Verbe  être (Français --> Anglais)")
     print()
-    print("4.  Conjugaison du Verbe avoir")
+    print("4.  Conjugaison du Verbe  être (Anglais --> Français)")
     print()
     return input("Quel est ton choix :")
 
@@ -62,7 +65,9 @@ def ask(word_to_translate, translated_word):
         print("Non, c'est {}".format(translated_word))
 
 def main(choice, runs=15):
+  
     for _ in range(runs):
+        
         if int(choice) == 1:
             word_to_translate, translated_word = random.choice(WORDS)
         if int(choice) == 2:
@@ -70,8 +75,10 @@ def main(choice, runs=15):
         if int(choice) == 3:
             word_to_translate, translated_word = random.choice(VERBS_BE)
         if int(choice) == 4:
-            word_to_translate, translated_word = random.choice(VERBS_HAVE)
+            translated_word, word_to_translate = random.choice(VERBS_BE)
+    
         ask(word_to_translate, translated_word)
+       
         
             
 
