@@ -31,7 +31,8 @@ def main_menu():
 
 def ask(word_to_translate, translated_word):
     answer = input("Quel est la traduction de {} :".format(word_to_translate))
-    if answer.lower() == translated_word.lower():
+    
+    if answer.lower().strip() == translated_word.lower():
         print("Bonne réponse !")
         
     else:
